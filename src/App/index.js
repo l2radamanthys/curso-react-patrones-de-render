@@ -15,7 +15,12 @@ import { useLocalStorage } from './useLocalStorage';
 // localStorage.removeItem('TODOS_V1');
 
 function App() {
-  const [todos, setTodos] = useLocalStorage("TODOS_V1", []);
+  const { 
+    item: todos, 
+    setItem: setTodos, 
+    loading, 
+    error
+  } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(
@@ -49,7 +54,9 @@ function App() {
     setTodos(newTodos);
   };
   
-  return <AppUI 
+  return <AppUI
+    loading={loading}
+    error={error}
     completedTodos={completeTodo}
     totalTodos={totalTodos}
     searchValue={searchValue}
