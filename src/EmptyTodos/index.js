@@ -1,10 +1,11 @@
 import React from "react";
+import "./EmptyTodos.css"
 
 function EmptyTodos() {
   return (
-    <div>
-      <p>No hay resultados...</p>
-    </div>
+    <li className="EmptyTodoResult">
+      <p className="EmptyTodoResult-p">No hay resultados...</p>
+    </li>
   )
 }
 
