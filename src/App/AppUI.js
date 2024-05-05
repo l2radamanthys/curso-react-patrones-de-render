@@ -3,6 +3,10 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { TodosLoading } from '../TodosLoading';
+import { EmptyTodos } from '../EmptyTodos';
+import { TodosError } from '../TodosError';
+
 
 function AppUI({
     loading,
@@ -27,9 +31,9 @@ return (
       />
 
       <TodoList>
-        {loading && <p>Estamos cargando...</p>}
-        {error && <p>Hubo un error</p>}
-        {(!loading && searchedTodos.length == 0) && <p>Crea tu primer ToDo..!</p>}
+        {loading && <TodosLoading />}
+        {error && <TodosError />}
+        {(!loading && searchedTodos.length == 0) && <EmptyTodos />}
 
         {searchedTodos.map(todo => (
           <TodoItem
