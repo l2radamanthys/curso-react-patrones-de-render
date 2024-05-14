@@ -4,12 +4,12 @@ import { useLocalStorage } from './useLocalStorage';
 const TodoContext = React.createContext();
 
 function TodoProvider({ children }) {
-  const { 
-    item: todos, 
-    setItem: saveTodos, 
-    loading, 
-    error
-  } = useLocalStorage("TODOS_V1", []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(
