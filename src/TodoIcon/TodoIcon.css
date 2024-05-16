@@ -13,7 +13,7 @@
 
 .Icon-container-check {
   position: absolute;
-  left: 12px;
+  right: 48px;
 }
 .Icon-container-check--active {
   color: #4caf50;
@@ -21,16 +21,15 @@
 
 .Icon-container-delete {
   position: absolute;
-  top: -24px;
-  right: 0;
+  right: 12px;
 }
 .Icon-container-delete:hover {
   color: red;
 }
 
 .Icon-svg {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 .Icon-container-check:hover .Icon-svg {

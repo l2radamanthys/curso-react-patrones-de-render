@@ -1,9 +1,10 @@
 .TodoCounter {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   margin: 0;
-  padding: 48px;
+  padding: 0 0 1rem 0;
   font-weight: normal;
+  text-decoration: dotted;
 }
 
 .TodoCounter span {

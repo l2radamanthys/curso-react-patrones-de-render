@@ -1,12 +1,10 @@
 .EmptyTodoResult {
-  background-color: #F0F0F0;
   text-align: center;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
 }
 
 .EmptyTodoResult-p {

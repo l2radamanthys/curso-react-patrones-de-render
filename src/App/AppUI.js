@@ -10,7 +10,7 @@ import { TodoContext } from '../TodoContext';
 import React from 'react';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
-
+import { TodoHeader } from '../TodoHeader';
 
 function AppUI() {
   const {
@@ -24,6 +24,7 @@ function AppUI() {
   } = React.useContext(TodoContext);
   return (
     <>
+      <TodoHeader />
       <TodoCounter />
       <TodoSearch />
 
