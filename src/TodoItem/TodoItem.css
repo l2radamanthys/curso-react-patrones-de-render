@@ -7,7 +7,7 @@
   margin-left: 1rem;
   margin-right: 1rem;
   border: 1px solid #333; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .TodoItem-p {
@@ -19,6 +19,6 @@
 }
 
 .TodoItem-p--complete {
-  color: #333;
+  color: #666;
   text-decoration: line-through;
 }

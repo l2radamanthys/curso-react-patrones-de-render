@@ -8,11 +8,16 @@ function TodoForm() {
     setOpenModal,
   } = React.useContext(TodoContext);
   const [newTodoValue, setNewTodoValue] = React.useState('');
+  const [formError, setFormError] = React.useState(false);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addTodo(newTodoValue);
-    setOpenModal(false);
+    if (newTodoValue.length > 5) {
+      addTodo(newTodoValue);
+      setOpenModal(false);
+    } else {
+      setFormError(true);
+    }
   };
 
   const onCancel = () => {
@@ -25,22 +30,25 @@ function TodoForm() {
 
   return(
     <form onSubmit={onSubmit}>
-      <label>Escribe tu nuevo TODO</label>
+      <label>Add new Task</label>
       <textarea
-        placeholder="Cortar cebolla para el almuerzo.."
+        placeholder="Task name"
         value={newTodoValue}
         onChange={onChange}
       ></textarea>
+
+      {formError && <div className="TodoForm-formError">Error: Not valid task name.</div>}
+
       <div className="TodoForm-buttonContainer">
         <button
           type="button"
           onClick={onCancel}
           className="TodoForm-button TodoForm-button--cancel"
-        >Cancelar</button>
+        >Cancel</button>
         <button
           type="submit"
           className="TodoForm-button TodoForm-button--add"
-        >Añadir</button>
+        >Add</button>
       </div>
     </form>
   )

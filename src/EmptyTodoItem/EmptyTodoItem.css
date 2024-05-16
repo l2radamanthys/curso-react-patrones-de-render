@@ -1,16 +1,19 @@
 .EmptyTodoItem {
-    background-color: #F0F0F0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 24px;
-    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
-    animation: loading-animation 0.5s infinite ease-in-out;
+  background-color: #444;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid #333; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  animation: loading-animation 0.5s infinite ease-in-out;
 }
 
 .EmptyTodoItem-p {
-  margin: 24px 0 24px 24px;
+  margin-right: 64px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
@@ -28,3 +31,4 @@
       opacity: 0.5; /* Opacidad final */
   }
 }
+
