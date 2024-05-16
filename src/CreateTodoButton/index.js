@@ -7,7 +7,7 @@ function CreateTodoButton({ setOpenModal }) {
       onClick={
         () => {setOpenModal(state => !state)}
       }
-    >+</button>
+    >Add Task</button>
   );
 }
 

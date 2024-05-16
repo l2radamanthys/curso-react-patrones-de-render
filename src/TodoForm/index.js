@@ -11,7 +11,7 @@ function TodoForm() {
   const [formError, setFormError] = React.useState(false);
 
   const onSubmit = (event) => {
-    event.preventDefault();
+    event !== null && event.preventDefault();
     if (newTodoValue.length > 5) {
       addTodo(newTodoValue);
       setOpenModal(false);
@@ -25,7 +25,17 @@ function TodoForm() {
   };
 
   const onChange = (event) => {
-    setNewTodoValue(event.target.value);
+    const text = event.target.value;
+    if (formError && text.length > 5) {
+      setFormError(false);
+    }
+    setNewTodoValue(text.trim());
+  };
+
+  const onKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      onSubmit(null);
+    }
   };
 
   return(
@@ -35,9 +45,8 @@ function TodoForm() {
         placeholder="Task name"
         value={newTodoValue}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       ></textarea>
-
-      {formError && <div className="TodoForm-formError">Error: Not valid task name.</div>}
 
       <div className="TodoForm-buttonContainer">
         <button
@@ -50,6 +59,8 @@ function TodoForm() {
           className="TodoForm-button TodoForm-button--add"
         >Add</button>
       </div>
+
+      {formError && <div className="TodoForm-formError"> Task name is not valid.</div>}
     </form>
   )
 }

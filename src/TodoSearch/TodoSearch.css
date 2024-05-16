@@ -15,10 +15,9 @@
 
 .TodoSearch::placeholder {
   color: #A5A5A5;
-  font-family: 'Montserrat';
   font-weight: 400;
 }
 
 .TodoSearch:focus {
-  border-color: #007bff;
+  border-color: #fff;
 }
