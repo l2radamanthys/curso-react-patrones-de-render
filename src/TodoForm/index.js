@@ -9,6 +9,7 @@ function TodoForm() {
   } = React.useContext(TodoContext);
   const [newTodoValue, setNewTodoValue] = React.useState('');
   const [formError, setFormError] = React.useState(false);
+  const todoTextInput = React.useRef(null);
 
   const onSubmit = (event) => {
     event !== null && event.preventDefault();
@@ -38,11 +39,18 @@ function TodoForm() {
     }
   };
 
+  React.useEffect(() => {
+    if (todoTextInput.current) {
+      todoTextInput.current.focus();
+    }
+  }, []);
+
   return(
     <form onSubmit={onSubmit}>
       <label>Add new Task</label>
       <textarea
         placeholder="Task name"
+        ref={todoTextInput}
         value={newTodoValue}
         onChange={onChange}
         onKeyDown={onKeyDown}

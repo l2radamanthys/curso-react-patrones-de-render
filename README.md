@@ -1,6 +1,8 @@
-# Fork del Repositorio - Curso de Introducción a React.js en Platzi
+# Curso de Introducción a React.js
 
-## Descripción
+Fork del Repositorio correspondiente Curso de Introducción a React.js en la plataforma Platzi
+
+## Mejoras
 
 Personalización e implementación del proyecto del curso ToDo Machine para el curso de Introducción a React:
 
@@ -13,5 +15,8 @@ Personalización e implementación del proyecto del curso ToDo Machine para el c
 - Separadas tareas pendientes de completadas.
 - Mejorados mensajes del TodoCounter y el EmptyTodo
 - Movida logica de AppUI a TodoUI
+- Añadido auto-focus al textarea del formulario cuando se abre.
 
-![./portada_a.png](Portada)
+## Capturas
+
+![Portada](portada_a.png)
