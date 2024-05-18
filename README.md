@@ -19,4 +19,4 @@ Personalización e implementación del proyecto del curso ToDo Machine para el c
 
 ## Capturas
 
-![Portada](portada_a.png)
+![Portada](https://raw.githubusercontent.com/l2radamanthys/curso-react-intro/main/portada-a.png)
