@@ -31,7 +31,7 @@ function TodoProvider({ children }) {
     const todoIndex = newTodos.findIndex(
       (todo) => todo.text === text
     );
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 

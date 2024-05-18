@@ -29,7 +29,7 @@ function TodoForm() {
     if (formError && text.length > 5) {
       setFormError(false);
     }
-    setNewTodoValue(text.trim());
+    setNewTodoValue(text);
   };
 
   const onKeyDown = (event) => {

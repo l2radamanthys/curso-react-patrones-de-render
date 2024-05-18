@@ -9,5 +9,9 @@ Personalización e implementación del proyecto del curso ToDo Machine para el c
 - Se agregó validación para la longitud mínima del texto.
 - Se permitió guardar tareas en el formulario al presionar Enter.
 - Se personalizaron las fuentes.
+- Cambiado evento para permitir desmarcar tareas completadas.
+- Separadas tareas pendientes de completadas.
+- Mejorados mensajes del TodoCounter y el EmptyTodo
+- Movida logica de AppUI a TodoUI
 
 ![./portada_a.png](Portada)

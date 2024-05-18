@@ -11,3 +11,8 @@ body {
   position: relative;
   min-height: 100vh;
 }
+
+.centerContainer {
+  max-width: 40rem;
+  margin: 0 auto;
+}

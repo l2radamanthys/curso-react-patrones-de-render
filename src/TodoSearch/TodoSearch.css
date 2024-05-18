@@ -10,7 +10,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
   outline: none;
   margin: 0 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .TodoSearch::placeholder {
