@@ -14,30 +14,34 @@ import React from 'react';
 
 
 function App() {
-  const [state, setState] = React.useState('');
+  const [state, setState] = React.useState('Estado compartido');
 
   return (
     <React.Fragment>
-      <TodoHeader />
-      <TodoList />
+      <TodoHeader>
+        <TodoCounter />
+        <TodoSearch />
+      </TodoHeader>
+      <TodoList>
+        <TodoItem state={state} />
+      </TodoList>
     </React.Fragment>
   );
 }
 
-function TodoHeader() {
+function TodoHeader({ children }) {
   return (
-    <React.Fragment>
-      <TodoCounter />
-      <TodoSearch />
-    </React.Fragment>
+    <header>
+      {children}
+    </header>
   );
 }
 
-function TodoList() {
+function TodoList({ children }) {
   return (
-    <React.Fragment>
-      <TodoItem />
-    </React.Fragment>
+    <section class="TodoList-container">
+      {children}
+    </section>
   );
 }
 
@@ -49,9 +53,8 @@ function TodoSearch() {
   return <p>TodoSearch</p>;
 }
 
-function TodoItem() {
-  return <p>TodoItem</p>;
+function TodoItem({ state }) {
+  return <p>TodoItem: {state}</p>;
 }
-
 
 export default App;
