@@ -12,22 +12,4 @@ function App() {
   );
 }
 
-
-// function App() {
-//   const [state, setState] = React.useState('Estado compartido');
-
-//   return (
-//     <React.Fragment>
-//       <TodoHeader>
-//         <TodoCounter />
-//         <TodoSearch />
-//       </TodoHeader>
-//       <TodoList>
-//         <TodoItem state={state} />
-//       </TodoList>
-//     </React.Fragment>
-//   );
-// }
-
-
 export default App;

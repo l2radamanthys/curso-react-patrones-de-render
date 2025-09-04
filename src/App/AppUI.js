@@ -7,7 +7,10 @@ import { TodoContext } from '../TodoContext';
 import { Modal } from '../Modal';
 import { TodoForm } from '../TodoForm';
 import { TodoHeader } from '../TodoHeader';
-
+import { TodoItem } from '../TodoItem';
+import { TodosLoading } from '../TodosLoading';
+import { EmptyTodos } from '../EmptyTodos';
+import { TodosError } from '../TodosError';
 
 function AppUI() {
   const {
@@ -17,6 +20,11 @@ function AppUI() {
     totalTodos,
     searchValue, 
     setSearchValue,
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
   } = React.useContext(TodoContext);
   return (
     <>
@@ -31,7 +39,35 @@ function AppUI() {
         />
       </TodoHeader>
 
-      <TodoList />
+      <TodoList>
+        {loading && <TodosLoading />}
+        {error && <TodosError />}
+        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
+
+        {(!loading && completedTodos < totalTodos) && <div className="listSeparator">Pendings</div>}
+
+        {searchedTodos.filter(todo => !todo.completed).map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+
+        {(!loading && completedTodos > 0) && <div className="listSeparator">Completed</div>}
+
+        {searchedTodos.filter(todo => todo.completed).map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
   
       <CreateTodoButton setOpenModal={setOpenModal}/>
       
