@@ -1,6 +1,6 @@
 import React from 'react';
 import './TodoCounter.css';
-import { TodoContext } from '../TodoContext';
+import { TodoContext } from '../App/useTodos';
 
 function TodoCounter( {completedTodos, totalTodos}) {
   if (totalTodos === 0) {

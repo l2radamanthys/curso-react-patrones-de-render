@@ -1,10 +1,9 @@
 import React from "react";
 import "./EmptyTodos.css";
-import { TodoContext } from "../TodoContext";
+import { TodoContext } from "../App/useTodos";
 
 
-function EmptyTodos() {
-  const {totalTodos} = React.useContext(TodoContext);
+function EmptyTodos({ totalTodos }) {
   return (
     <li className="EmptyTodoResult">
       <p className="EmptyTodoResult-p">
