@@ -1,8 +1,14 @@
+import React from 'react';
 import './TodoHeader.css';
 
-function TodoHeader() {
+function TodoHeader({ children }) {
   return(
-    <h1 className="TodoHeader">My Pending Tasks</h1>
+    <React.Fragment>
+      <h1 className="TodoHeader">My Pending Tasks</h1>
+      <div className="centerContainer">
+        {children}
+      </div>
+    </React.Fragment>
   );
 }
 
