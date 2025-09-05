@@ -3,25 +3,27 @@ import React from 'react';
 
 
 function TodoList(props) {
-  const isEmpty = !props.loading && !props.searchedTodos?.length;
+  const isEmpty = !props.loading && !props.totalTodos;
+  const isEmptySearch = !props.loading && !!props.totalTodos && !props.searchedTodos.length;
   const pendingTodosList = props.searchedTodos.filter(todo => !todo.completed);
   const completedTodosList = props.searchedTodos.filter(todo => todo.completed);
 
-  console.log(completedTodosList)
+  const renderFunc = props.children || props.renderFunc;
 
   return (
     <section className="centerContainer TodoList-container">
       {props.error && props.onError()}
       {props.loading && props.onLoading()}
       {isEmpty && props.onEmptyTodos()}
+      {isEmptySearch && props.onEmptySearchTodos(props.searchText)}
 
-      {(!props.loading && props.completedTodos < props.totalTodos) && <div className="listSeparator">Pendings</div>}
+      {(!props.loading && pendingTodosList.length > 0) && <div className="listSeparator">Pendings</div>}
 
-      {pendingTodosList.map(props.render)}
+      {pendingTodosList.map(renderFunc)}
 
-      {(!props.loading && props.completedTodos > 0) && <div className="listSeparator">Completed</div>}
+      {(!props.loading && completedTodosList.length > 0) && <div className="listSeparator">Completed</div>}
 
-      {completedTodosList.map(props.render)}
+      {completedTodosList.map(renderFunc)}
     </section>
   );
 }

@@ -3,12 +3,11 @@ import "./EmptyTodos.css";
 import { TodoContext } from "../App/useTodos";
 
 
-function EmptyTodos({ totalTodos }) {
+function EmptyTodos() {
   return (
     <li className="EmptyTodoResult">
       <p className="EmptyTodoResult-p">
-        {totalTodos > 0 && <>We didn't find any matches</>}
-        {totalTodos === 0 && <>Please add your first task...</>}
+        Please add your first task...
       </p>
     </li>
   )
