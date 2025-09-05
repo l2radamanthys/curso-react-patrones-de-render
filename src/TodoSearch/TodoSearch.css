@@ -21,3 +21,7 @@
 .TodoSearch:focus {
   border-color: #fff;
 }
+
+.TodoSearch:disabled {
+  opacity: 0.3;
+}
