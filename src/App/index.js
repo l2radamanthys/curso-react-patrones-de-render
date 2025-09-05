@@ -12,6 +12,8 @@ import { EmptyTodos } from '../EmptyTodos';
 import { TodosError } from '../TodosError';
 import { useTodos } from './useTodos';
 import { EmptySearchTodos } from '../EmptySearchTodos';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
+
 
 function App() {
   const {
@@ -27,6 +29,7 @@ function App() {
     completeTodo,
     deleteTodo,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -73,6 +76,10 @@ function App() {
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )}
+
+      <ChangeAlertWithStorageListener 
+        sincroinze={sincronizeTodos}
+      />
     </React.Fragment>
   );
 }
