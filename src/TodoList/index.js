@@ -19,11 +19,11 @@ function TodoList(props) {
 
       {(!props.loading && pendingTodosList.length > 0) && <div className="listSeparator">Pendings</div>}
 
-      {pendingTodosList.map(renderFunc)}
+      {!props.loading && pendingTodosList.map(renderFunc)}
 
       {(!props.loading && completedTodosList.length > 0) && <div className="listSeparator">Completed</div>}
 
-      {completedTodosList.map(renderFunc)}
+      {!props.loading && completedTodosList.map(renderFunc)}
     </section>
   );
 }

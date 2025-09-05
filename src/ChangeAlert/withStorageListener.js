@@ -21,7 +21,7 @@ function withStorageListener(WrappedComponent) {
     return (
       <WrappedComponent 
         show={storageChange} 
-        toogleShow={toggleShow}
+        toggleShow={toggleShow}
       />
     );
   };
