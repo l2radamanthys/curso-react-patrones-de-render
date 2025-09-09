@@ -1,27 +1,26 @@
-import React from 'react';
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch } from '../TodoSearch';
-import { TodoList } from '../TodoList';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { Modal } from '../Modal';
-import { TodoForm } from '../TodoForm';
-import { TodoHeader } from '../TodoHeader';
-import { TodoItem } from '../TodoItem';
-import { TodosLoading } from '../TodosLoading';
-import { EmptyTodos } from '../EmptyTodos';
-import { TodosError } from '../TodosError';
-import { useTodos } from './useTodos';
-import { EmptySearchTodos } from '../EmptySearchTodos';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert';
-
+import React from "react";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
+import { TodoHeader } from "../TodoHeader";
+import { TodoItem } from "../TodoItem";
+import { TodosLoading } from "../TodosLoading";
+import { EmptyTodos } from "../EmptyTodos";
+import { TodosError } from "../TodosError";
+import { useTodos } from "./useTodos";
+import { EmptySearchTodos } from "../EmptySearchTodos";
+import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
   const {
     openModal,
     setOpenModal,
-    completedTodos, 
+    completedTodos,
     totalTodos,
-    searchValue, 
+    searchValue,
     setSearchValue,
     loading,
     error,
@@ -34,20 +33,12 @@ function App() {
 
   return (
     <React.Fragment>
-      <TodoHeader
-        loading={loading}
-      >
-        <TodoCounter 
-          totalTodos={totalTodos}
-          completedTodos={completedTodos}
-        />
-        <TodoSearch 
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
+      <TodoHeader loading={loading}>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
 
-      <TodoList 
+      <TodoList
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
@@ -57,9 +48,11 @@ function App() {
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
-        onEmptySearchTodos={(searchText) => <EmptySearchTodos searchText={searchText} />}
-      > 
-        {todo => (
+        onEmptySearchTodos={(searchText) => (
+          <EmptySearchTodos searchText={searchText} />
+        )}
+      >
+        {(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -69,17 +62,15 @@ function App() {
           />
         )}
       </TodoList>
-      <CreateTodoButton setOpenModal={setOpenModal}/>
-      
+      <CreateTodoButton setOpenModal={setOpenModal} />
+
       {openModal && (
         <Modal>
           <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener 
-        sincroinze={sincronizeTodos}
-      />
+      <ChangeAlert sincroinze={sincronizeTodos} />
     </React.Fragment>
   );
 }
